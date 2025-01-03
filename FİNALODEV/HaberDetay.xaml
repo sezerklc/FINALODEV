@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FİNALODEV.HaberDetay"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="50,*">
+       
+        <Grid Grid.Row="0" BackgroundColor="DarkRed" ColumnDefinitions="Auto,*,Auto">
+            
+            <ImageButton Grid.Column="0"
+                        Source="back.png"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        Margin="10,0,0,0"
+                        Clicked="GeriClicked"/>
+
+            <Label Grid.Column="1"
+                   Text="Haber Detayı"
+                   TextColor="White"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="10,0,0,0"/>
+
+          
+            <ImageButton Grid.Column="2"
+                        Source="share.png"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        Margin="0,0,10,0"
+                        Clicked="ShareClicked"/>
+        </Grid>
+
+        
+        <WebView Grid.Row="1" 
+                x:Name="webView"/>
+    </Grid>
+
+</ContentPage>

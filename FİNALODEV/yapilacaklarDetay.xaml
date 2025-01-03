@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FİNALODEV.yapilacaklarDetay"
+             Title="Görev Detayı"
+             BackgroundColor="AliceBlue">
+    <Frame Margin="15" 
+           Padding="15"
+           BackgroundColor="White"
+           BorderColor="LightSteelBlue"
+           CornerRadius="12"
+           HasShadow="True">
+
+        <VerticalStackLayout Spacing="10">
+            <Label Text="Görev:" 
+                   FontAttributes="Bold"
+                   TextColor="Navy"
+                   FontSize="14"/>
+            <Entry x:Name="txttitle" 
+                   Placeholder="Yapılacak görevi girin"
+                   PlaceholderColor="Gray"
+                   TextColor="DarkSlateGray"/>
+
+            <Label Text="Detay:" 
+                   FontAttributes="Bold"
+                   TextColor="Navy"
+                   FontSize="14"/>
+            <Editor x:Name="txtnote" 
+                    Placeholder="Görev detaylarını girin"
+                    PlaceholderColor="Gray"
+                    TextColor="DarkSlateGray"
+                    HeightRequest="80"/>
+
+            <Label Text="Tarih:" 
+                   FontAttributes="Bold"
+                   TextColor="Navy"
+                   FontSize="14"/>
+            <HorizontalStackLayout Spacing="8">
+                <DatePicker x:Name="datePicker" 
+                           Format="dd/MM/yyyy"
+                           TextColor="DarkSlateGray"/>
+                <Button Text="Bugün" 
+                        Clicked="BugunClicked"
+                        BackgroundColor="RoyalBlue"
+                        TextColor="White"
+                        CornerRadius="6"
+                        WidthRequest="80"
+                        FontSize="13"/>
+            </HorizontalStackLayout>
+
+            <Label Text="Saat:" 
+                   FontAttributes="Bold"
+                   TextColor="Navy"
+                   FontSize="14"/>
+            <HorizontalStackLayout Spacing="8">
+                <TimePicker x:Name="timePicker" 
+                           Format="HH:mm"
+                           TextColor="DarkSlateGray"/>
+                <Button Text="Şimdi" 
+                        Clicked="SimdiClicked"
+                        BackgroundColor="RoyalBlue"
+                        TextColor="White"
+                        CornerRadius="6"
+                        WidthRequest="80"
+                        FontSize="13"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="15" 
+                                 HorizontalOptions="Center"
+                                 Margin="0,15,0,0">
+                <Button Text="Kaydet" 
+                        Clicked="OKClicked"
+                        BackgroundColor="RoyalBlue"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="6"
+                        WidthRequest="100"
+                        FontSize="14"/>
+                <Button Text="İptal" 
+                        Clicked="CancelClicked"
+                        BackgroundColor="White"
+                        TextColor="RoyalBlue"
+                        BorderColor="RoyalBlue"
+                        BorderWidth="1"
+                        FontAttributes="Bold"
+                        CornerRadius="6"
+                        WidthRequest="100"
+                        FontSize="14"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Frame>
+</ContentPage>

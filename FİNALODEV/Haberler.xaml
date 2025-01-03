@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FİNALODEV.Haberler"
+             Title="Haberler"
+             BackgroundColor="WhiteSmoke">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="refresh.png" 
+                     Order="Primary" 
+                     Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="Auto,*" 
+          RowSpacing="15"
+          Padding="10,5">
+
+        <CollectionView x:Name="category" 
+                       Grid.Row="0" 
+                       SelectionMode="Single" 
+                       SelectionChanged="category_SelectionChanged"
+                       Margin="0,10">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" 
+                                 ItemSpacing="15"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="LightBlue"
+                           CornerRadius="20"
+                           Padding="15,8">
+                        <Label x:Name="baslik" 
+                               Text="{Binding Baslik}"
+                               TextColor="Navy"
+                               FontAttributes="Bold"/>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <CollectionView x:Name="lsHaberler"  
+                       Grid.Row="1" 
+                       SelectionMode="Single" 
+                       SelectionChanged="lsHaberler_metot">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" 
+                                 ItemSpacing="20"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="15" 
+                           BorderColor="LightGray"
+                           HeightRequest="650"
+                           Margin="5,0">
+                        <StackLayout Spacing="12">
+                            <Image Source="{Binding enclosure.link}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="400"/>
+                            <Label Text="{Binding title}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="DarkSlateGray"/>
+                            <Grid ColumnDefinitions="Auto,Auto,*">
+                                <Label Text="{Binding author}"
+                                       TextColor="Gray"
+                                       Grid.Column="0"/>
+                                <Label Text="  |  "
+                                       TextColor="Gray"
+                                       Grid.Column="1"/>
+                                <Label Text="{Binding pubDate}"
+                                       TextColor="Gray"
+                                       Grid.Column="2"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

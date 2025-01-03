@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FİNALODEV", "FİNALODEV\FİNALODEV.csproj", "{86152D45-3C88-4635-88B3-AB20C5EA7B92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86152D45-3C88-4635-88B3-AB20C5EA7B92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86152D45-3C88-4635-88B3-AB20C5EA7B92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86152D45-3C88-4635-88B3-AB20C5EA7B92}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{86152D45-3C88-4635-88B3-AB20C5EA7B92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86152D45-3C88-4635-88B3-AB20C5EA7B92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86152D45-3C88-4635-88B3-AB20C5EA7B92}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DB0592F5-7C64-4911-8AF5-236DC825AF51}
+	EndGlobalSection
+EndGlobal

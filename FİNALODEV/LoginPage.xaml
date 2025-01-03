@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="FİNALODEV.LoginPage"
+            Title="Giriş"
+            BackgroundColor="AliceBlue">
+    <VerticalStackLayout VerticalOptions="Center">
+        <Border Background="White" 
+               Stroke="LightSteelBlue"
+               StrokeThickness="2"
+               StrokeShape="RoundRectangle 20"
+               Margin="20"
+               HeightRequest="400"
+               WidthRequest="350">
+            <Grid Margin="20">
+                <StackLayout>
+                    <StackLayout x:Name="loginStack" Spacing="20">
+                        <Label Text="Giriş Yap" 
+                              FontSize="28" 
+                              TextColor="SteelBlue"
+                              FontAttributes="Bold"
+                              HorizontalOptions="Center"
+                              Margin="0,0,0,20"/>
+
+                        <Entry x:Name="lEmail" 
+                              Placeholder="E-posta" 
+                              Keyboard="Email"
+                              TextColor="Navy"
+                              PlaceholderColor="Gray"/>
+
+                        <Entry x:Name="lPassword" 
+                              Placeholder="Şifre" 
+                              IsPassword="True"
+                              TextColor="Navy"
+                              PlaceholderColor="Gray"/>
+
+                        <Button Text="Giriş Yap" 
+                               Clicked="Login_Clicked"
+                               BackgroundColor="RoyalBlue"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               CornerRadius="10"/>
+
+                        <Button Text="Hesap Oluştur" 
+                               Clicked="Reg_Clicked" 
+                               BackgroundColor="Transparent" 
+                               TextColor="SteelBlue"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+
+                    <StackLayout x:Name="registerStack" IsVisible="False" Spacing="15">
+                        <Label Text="Kayıt Ol" 
+                              FontSize="28" 
+                              TextColor="SteelBlue"
+                              FontAttributes="Bold"
+                              HorizontalOptions="Center"
+                              Margin="0,0,0,15"/>
+
+                        <Entry x:Name="rDispName" 
+                              Placeholder="Ad Soyad"
+                              TextColor="Navy"
+                              PlaceholderColor="Gray"/>
+
+                        <Entry x:Name="rEmail" 
+                              Placeholder="E-posta" 
+                              Keyboard="Email"
+                              TextColor="Navy"
+                              PlaceholderColor="Gray"/>
+
+                        <Entry x:Name="rPassword" 
+                              Placeholder="Şifre" 
+                              IsPassword="True"
+                              TextColor="Navy"
+                              PlaceholderColor="Gray"/>
+
+                        <Button Text="Kayıt Ol" 
+                               Clicked="Register_Clicked"
+                               BackgroundColor="RoyalBlue"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               CornerRadius="10"
+                               Margin="0,10"/>
+
+                        <Button Text="Giriş Sayfasına Dön" 
+                               Clicked="Reg_Clicked" 
+                               BackgroundColor="Transparent" 
+                               TextColor="SteelBlue"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>
