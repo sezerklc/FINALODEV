@@ -1,4 +1,3 @@
-// Yapilacaklar.xaml.cs
 using FİNALODEV.MODEL;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -8,9 +7,12 @@ namespace FİNALODEV
     public partial class Yapilacaklar : ContentPage
     {
         string message = "";
+        private string currentUserId;
+
         public Yapilacaklar()
         {
             InitializeComponent();
+            currentUserId = FirebaseServices.CurrentUser?.Id;  // Uid yerine Id kullanıyoruz
             LoadTasks();
             listTask.ItemsSource = BL.Tasks;
         }
@@ -19,7 +21,7 @@ namespace FİNALODEV
         {
             try
             {
-                var result = await BL.LoadTasks();
+                var result = await BL.LoadTasks(currentUserId);
                 if (!result.success)
                     await DisplayAlert("Error", result.message, "Cancel");
             }
@@ -43,7 +45,8 @@ namespace FİNALODEV
                     {
                         Title = task.Title,
                         Description = task.Note,
-                        CreatedDate = task.TaskDateTime
+                        CreatedDate = task.TaskDateTime,
+                        UserId = currentUserId
                     };
                     await AddTask(yapilacak);
                 };
@@ -60,7 +63,7 @@ namespace FİNALODEV
             try
             {
                 var menuItem = sender as MenuFlyoutItem;
-                var task = BL.Tasks.FirstOrDefault(o => o.Id == menuItem.CommandParameter.ToString());
+                var task = BL.Tasks.FirstOrDefault(o => o.Id == menuItem.CommandParameter.ToString() && o.UserId == currentUserId);
                 if (task == null) return;
 
                 var myTask = new MyTask
@@ -94,7 +97,7 @@ namespace FİNALODEV
             try
             {
                 var menuItem = sender as MenuFlyoutItem;
-                var task = BL.Tasks.First(o => o.Id == menuItem.CommandParameter.ToString());
+                var task = BL.Tasks.First(o => o.Id == menuItem.CommandParameter.ToString() && o.UserId == currentUserId);
                 bool answer = await DisplayAlert("Silmeyi Onayla", $"{task.Title} silinsin mi?", "Evet", "Hayır");
                 if (answer)
                 {

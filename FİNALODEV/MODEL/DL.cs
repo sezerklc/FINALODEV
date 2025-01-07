@@ -28,7 +28,7 @@ namespace FİNALODEV.MODEL
                 var toUpdateTask = (await client
                     .Child("Tasks")
                     .OnceAsync<Yapilacaklar>())
-                    .FirstOrDefault(a => a.Object.Id == task.Id);
+                    .FirstOrDefault(a => a.Object.Id == task.Id && a.Object.UserId == task.UserId);
 
                 if (toUpdateTask != null)
                 {
@@ -50,7 +50,7 @@ namespace FİNALODEV.MODEL
                 var toDeleteTask = (await client
                     .Child("Tasks")
                     .OnceAsync<Yapilacaklar>())
-                    .FirstOrDefault(a => a.Object.Id == task.Id);
+                    .FirstOrDefault(a => a.Object.Id == task.Id && a.Object.UserId == task.UserId);
 
                 if (toDeleteTask != null)
                 {
@@ -65,13 +65,15 @@ namespace FİNALODEV.MODEL
             }
         }
 
-        public static async Task<(ObservableCollection<Yapilacaklar> tasks, string message)> GetTasks()
+        public static async Task<(ObservableCollection<Yapilacaklar> tasks, string message)> GetTasks(string userId)
         {
             try
             {
                 var taskList = new ObservableCollection<Yapilacaklar>();
-                var tasks = await client.Child("Tasks").OnceAsync<Yapilacaklar>();
-                foreach (var task in tasks)
+                var tasks = await client.Child("Tasks")
+                    .OnceAsync<Yapilacaklar>();
+
+                foreach (var task in tasks.Where(t => t.Object.UserId == userId))
                 {
                     taskList.Add(task.Object);
                 }

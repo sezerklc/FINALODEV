@@ -6,11 +6,11 @@ namespace FİNALODEV.MODEL
     {
         public static ObservableCollection<Yapilacaklar> Tasks { get; set; } = new ObservableCollection<Yapilacaklar>();
 
-        public static async Task<(bool success, string message)> LoadTasks()
+        public static async Task<(bool success, string message)> LoadTasks(string userId)
         {
             try
             {
-                var (tasks, message) = await DL.GetTasks();
+                var (tasks, message) = await DL.GetTasks(userId);
                 if (tasks != null)
                 {
                     Tasks.Clear();

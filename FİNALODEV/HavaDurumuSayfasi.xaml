@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FİNALODEV.HavaDurumuSayfasi"
              Title="Hava Durumu"
-             BackgroundColor="Azure">
-
+             BackgroundColor="WhiteSmoke">
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Şehir Ekle" 
                      Order="Primary" 
@@ -15,10 +15,9 @@
                      IconImageSource="refresh.png" 
                      Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
-
-    <Grid RowDefinitions="Auto,*" 
+     <!--GİTHUB DENEME -->
+    <Grid RowDefinitions="Auto,*"     
           Padding="15">
-
         <Frame Grid.Row="0"
                BackgroundColor="RoyalBlue"
                CornerRadius="25"
@@ -41,26 +40,29 @@
                     <ViewCell>
                         <Frame Margin="0,0,0,15"
                                CornerRadius="15"
-                               BorderColor="LightSteelBlue"
+                               BorderColor="LightGray"
                                BackgroundColor="White"
-                               Padding="10">
+                               HasShadow="True"
+                               Padding="15">
                             <Grid RowDefinitions="Auto,Auto,Auto" 
                                   RowSpacing="10">
                                 <Label Text="{Binding Name}" 
                                        HorizontalOptions="Center"  
-                                       TextColor="DarkSlateBlue" 
-                                       FontSize="20"
+                                       TextColor="Navy" 
+                                       FontSize="22"
                                        FontAttributes="Bold"
                                        Grid.Row="0" />
-
+                                
                                 <Frame Grid.Row="1" 
                                        BackgroundColor="AliceBlue"
                                        CornerRadius="10"
-                                       Padding="5"
+                                       HasShadow="False"
+                                       Padding="10"
+                                       HeightRequest="250"
                                        Margin="0,5">
                                     <Image Source="{Binding WeatherImage}" 
-                                           HeightRequest="200" 
-                                           WidthRequest="200"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
                                            Aspect="AspectFit"/>
                                 </Frame>
 
